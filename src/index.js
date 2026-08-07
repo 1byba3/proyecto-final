@@ -15,10 +15,8 @@ app.use(express.json());
 app.use('/health', healthRoutes);
 app.use('/books', booksRoutes);
 
-// Rutas base
-app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to the Books API' });
-});
+// Rutas base servidas desde la carpeta public
+app.use(express.static('public'));
 
 // Manejo de rutas no encontradas
 app.use((req, res) => {
